@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Labarrère Consultoria — Consultoria para o mundo dos dados</title>
+  <meta name="description" content="Labarrère Consultoria: transformação para o mundo da IA. Integramos Dados, Tecnologia e Gestão para destravar o potencial da sua organização." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Labarrère Consultoria — Transformação com Dados, Tecnologia e Gestão" />
+  <meta property="og:description" content="Consultoria que entrega resultados observáveis com metodologias ágeis e foco em impacto real." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --black:   #262626;
+      --blue:    #B4C6E7;
+      --white:   #ffffff;
+      --gray:    #f5f5f5;
+      --ink-light: #f1f5f9;
+      --ink-dark:  #111827;
+      --maxw: 1220px;
+      --radius: 16px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Calibri, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
+      background: var(--black);
+      color: var(--ink-light);
+    }
+    h1,h2,h3,h4{
+      font-family: "Century Gothic", system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+
+    /* HEADER */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(160%) blur(8px);
+      background: rgba(38,38,38,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav{
+      max-width:var(--maxw);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:28px 20px;
+    }
+    .brand{ font-weight:800; letter-spacing:.3px; font-size:20px;}
+    .brand a{ color:var(--ink-light); text-decoration:none; }
+
+    nav{
+      display:flex;
+      align-items:center;
+    }
+    nav a{
+      color:var(--ink-light);
+      text-decoration:none;
+      opacity:.9;
+      margin-left:22px;
+      font-weight:600;
+      font-size:17px;
+    }
+    nav a:hover{ opacity:1; color:var(--blue); }
+
+    /* SWITCH DE IDIOMA */
+    .lang-switch{
+      margin-left:22px;
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:space-between;
+      width:78px;
+      padding:4px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);
+      cursor:pointer;
+      font-size:14px;
+      line-height:1;
+      gap:0;
+      overflow:hidden;
+    }
+    .lang-flag{
+      position:relative;
+      z-index:1;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:opacity 180ms ease;
+      user-select:none;
+    }
+    .lang-flag img{
+      display:block;
+      width:18px;
+      height:auto;
+      border-radius:2px;
+    }
+    .lang-thumb{
+      position:absolute;
+      top:3px;
+      bottom:3px;
+      width:34px;
+      border-radius:999px;
+      background:var(--blue);
+      transition:transform 200ms ease, background 200ms ease;
+    }
+    .lang-switch.is-pt .lang-thumb{ transform:translateX(0); }
+    .lang-switch.is-en .lang-thumb{ transform:translateX(34px); }
+    .lang-switch.is-pt .lang-pt{ opacity:1; }
+    .lang-switch.is-pt .lang-en{ opacity:0.5; }
+    .lang-switch.is-en .lang-pt{ opacity:0.5; }
+    .lang-switch.is-en .lang-en{ opacity:1; }
+
+    /* SEÇÕES GERAIS */
+    section{
+      --bg: var(--black);
+      --fg: var(--ink-light);
+      --border: rgba(255,255,255,0.15);
+      padding:80px 20px;
+      background:var(--bg);
+      color:var(--fg);
+      border-top:1px solid var(--border);
+    }
+    section:nth-of-type(even){
+      --bg: var(--white);
+      --fg: var(--ink-dark);
+      --border: rgba(0,0,0,0.08);
+      --blue: #4A6BB8;
+    }
+
+    .wrap{
+      max-width:var(--maxw);
+      margin:0 auto;
+    }
+
+    h2{
+      font-size:clamp(22px,3vw,32px);
+      margin:0 0 8px;
+    }
+
+    .subtitle-line{
+      display:inline-block;
+      margin-bottom:24px;
+    }
+    .subtitle-line span{
+      display:block;
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      color:var(--blue);
+    }
+    .subtitle-line::after{
+      content:"";
+      display:block;
+      width:60px;
+      height:3px;
+      background:var(--blue);
+      border-radius:999px;
+    }
+
+    p{ line-height:1.6; font-size:15px; margin:0 0 8px; }
+
+    /* --- HERO (Split Screen - Estilo EloGroup) --- */
+    #inicio {
+        padding: 0; /* Remove padding da seção para a imagem encostar nas bordas */
+        border-top: none;
+        overflow: hidden;
+    }
+
+    .hero-split {
+        display: grid;
+        /* Divide a tela exatamente ao meio (50% / 50%) */
+        grid-template-columns: 1fr 1fr;
+        /* Altura mínima de 90% da viewport para o texto ficar "mais baixo" (centralizado verticalmente numa área grande) */
+        min-height: 90vh; 
+        width: 100%;
+    }
+
+    .hero-copy {
+        /* Padding esquerdo maior para simular a margem do container .wrap */
+        padding: 0 10% 0 12%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza o texto verticalmente */
+        background: var(--black);
+        z-index: 2;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(32px, 4.5vw, 60px);
+        margin-bottom: 24px;
+        line-height: 1.1;
+    }
+
+    .hero-copy p.lead {
+        font-size: 18px;
+        max-width: 55ch;
+        margin-bottom: 16px;
+    }
+
+    .hero-copy p.small {
+        font-size: 14px;
+        opacity: 0.8;
+        max-width: 55ch;
+        margin-bottom: 32px;
+    }
+
+    .cta {
+        display: inline-block;
+        width: fit-content; /* O botão não estica mais */
+        padding: 14px 32px;
+        border-radius: 999px;
+        background: var(--blue);
+        color: #111827;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 15px;
+        border: none;
+    }
+
+    .hero-visual {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: var(--black);
+        background-image: url('assets/alternada1.jpg');
+        background-size: cover;
+        background-position: center;
+        /* Removemos o border-radius para ser quadrado (borda a borda) */
+        border-radius: 0; 
+    }
+
+    /* GRID / CARDS */
+    .grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    }
+    .card{
+      background:color-mix(in oklab, var(--bg) 75%, var(--white));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .card h3{ margin:4px 0 6px; font-size:17px; }
+    .card p{ margin:0; font-size:14px; }
+
+    /* Indicadores */
+    .stats{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      margin-top:24px;
+    }
+    .stat{
+      background:color-mix(in oklab, var(--bg) 70%, var(--white));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px;
+    }
+    .stat .num{
+      font-size:clamp(28px,5vw,40px);
+      font-weight:900;
+      color:var(--blue);
+      letter-spacing:-0.03em;
+    }
+    .stat .label{ margin-top:6px; font-weight:600; font-size:14px; }
+    .stat .desc{ margin-top:4px; font-size:13px; opacity:.9; }
+
+    /* Serviços */
+    .service-card{
+      position:relative;
+      cursor:pointer;
+      transition:transform 180ms ease, box-shadow 180ms ease;
+    }
+    .service-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(0,0,0,0.45);
+    }
+    .service-body{
+      max-height:0;
+      overflow:hidden;
+      margin-top:4px;
+      transition:max-height 220ms ease;
+    }
+    .service-card:hover .service-body{ max-height:120px; }
+
+    /* Projetos */
+    .projects-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr);
+      gap:24px;
+      align-items:start;
+    }
+
+    .proj-images{
+      position: relative;
+      height: 400px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .proj-images .slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transition:opacity 800ms ease;
+    }
+    .proj-images .slide.show{
+      opacity:1;
+    }
+
+    /* Abordagem */
+    .approach-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:24px;
+      align-items:start;
+    }
+    #abordagem .approach-layout .grid{
+      display:flex;
+      justify-content:flex-end;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    #abordagem .approach-layout .card{
+      min-width:120px;
+      text-align:center;
+      padding:10px 18px;
+      border-radius:8px;
+      background:transparent;
+      border:1px solid currentColor;
+    }
+    #abordagem .approach-layout .card p{ display:none; }
+
+    /* Contatos */
+    .contact{
+      display:grid;
+      gap:16px;
+      grid-template-columns:1.1fr 1fr;
+      align-items:stretch;
+    }
+    .contact-left{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .contact form{
+      background:color-mix(in oklab, var(--bg) 90%, var(--white));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    label{ display:block; font-size:13px; margin:8px 0 4px; }
+    input, textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:color-mix(in oklab, var(--bg) 92%, var(--white));
+      color:inherit;
+      font-family:inherit;
+      font-size:14px;
+    }
+    textarea{ min-height:120px; resize:vertical; }
+    .btn{
+      margin-top:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--blue);
+      color:#111827;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    footer{
+      padding:28px 20px 40px;
+      text-align:center;
+      background:#111111;
+      color:var(--ink-light);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    a{ color:inherit; }
+    a[href^="tel"], a[href^="mailto"]{ text-decoration:none; }
+
+    @media (max-width:900px){
+      /* Ajuste Hero Mobile: Texto em cima, imagem em baixo */
+      .hero-split {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 40vh;
+      }
+      .hero-copy {
+          padding: 60px 20px;
+      }
+      .hero-visual {
+          height: 100%;
+          min-height: 40vh;
+      }
+
+      .projects-layout, .approach-layout, .contact{ grid-template-columns:1fr; }
+      #abordagem .approach-layout .grid{ justify-content:flex-start; }
+      .nav{ flex-wrap:wrap; gap:8px; }
+      nav a{ margin-left:10px; }
+      .lang-switch{ margin-left:10px; }
+      .contact-left{ justify-content:flex-start; gap:16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <a href="#inicio" data-i18n="nav.brand">Labarrère Consultoria</a>
+      </div>
+      <nav>
+        <a href="#inicio" data-i18n="nav.inicio">Início</a>
+        <a href="#dados" data-i18n="nav.dados">Dados</a>
+        <a href="#servicos" data-i18n="nav.servicos">Serviços</a>
+        <a href="#projetos" data-i18n="nav.projetos">Projetos</a>
+        <a href="#abordagem" data-i18n="nav.abordagem">Abordagem</a>
+        <a href="#contatos" data-i18n="nav.contatos">Contatos</a>
+
+        <button id="lang-switch" type="button" class="lang-switch is-pt" aria-label="Trocar idioma">
+          <span class="lang-flag lang-pt" aria-hidden="true">
+            <img src="assets/band_brasil.png" alt="BR">
+          </span>
+          <span class="lang-flag lang-en" aria-hidden="true">
+            <img src="assets/band_eua.png" alt="US">
+          </span>
+          <span class="lang-thumb" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="inicio">
+    <div class="hero-split">
+      <div class="hero-copy">
+        <h1 data-i18n="hero.title">Consultoria para o mundo dos dados</h1>
+        <p class="lead" data-i18n="hero.lead">
+          Uma consultoria de transformação para o mundo da IA. Integramos nosso conhecimento em Dados, Tecnologia e Gestão para destravar o potencial da sua organização.
+        </p>
+        <p class="small" data-i18n="hero.small">
+          Trabalhamos com uma metodologia proprietária de desenvolvimento de projetos de ciência de dados — LeanDS — o que garante entregas rápidas, constantes e o enquadramento correto para o seu problema de negócio.
+        </p>
+        <a class="cta" href="#contatos" data-i18n="hero.cta">Fale com a consultoria</a>
+      </div>
+      <div class="hero-visual" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section id="dados">
+    <div class="wrap">
+      <div class="subtitle-line">
+        <span data-i18n="dados.subtitle">dados e resultados</span>
+      </div>
+      <h2 data-i18n="dados.title">Indicadores de impacto</h2>
+      <p data-i18n="dados.text">
+        Trabalhamos com uma metodologia proprietária de desenvolvimento de projetos de ciência de dados - LeanDS - o que garante aos nossos clientes entregas rápidas e constantes, e o enquadramento correto para o seu problema de negócio.
+      </p>
+
+      <div class="stats" id="stats">
+        <div class="stat">
+          <div class="num" data-count="10" data-suffix="+">0</div>
+          <div class="label" data-i18n="dados.stat1.label">Projetos executados</div>
+          <div class="desc" data-i18n="dados.stat1.desc">Projetos de dados, IA e automação em diferentes setores.</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-prefix="R$ " data-count="50" data-suffix=" bi+">0</div>
+          <div class="label" data-i18n="dados.stat2.label">Em créditos avaliados</div>
+          <div class="desc" data-i18n="dados.stat2.desc">Volume de créditos analisados por nossos modelos de risco e priorização.</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-count="4" data-suffix=" anos">0</div>
+          <div class="label" data-i18n="dados.stat3.label">Entregando resultados</div>
+          <div class="desc" data-i18n="dados.stat3.desc">Experiência acumulada em projetos de ciência de dados aplicados.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="subtitle-line">
+        <span data-i18n="servicos.subtitle">o que fazemos</span>
+      </div>
+      <h2 data-i18n="servicos.title">Serviços</h2>
+      <p data-i18n="servicos.text">
+        Atuamos em toda a jornada de dados, da infraestrutura à camada de decisão, combinando modelos estatísticos, aprendizado de máquina e soluções de IA generativa.
+      </p>
+
+      <div class="grid">
+        <div class="card service-card">
+          <h3 data-i18n="servicos.ml.title">Machine Learning</h3>
+          <p data-i18n="servicos.ml.teaser">Modelos personalizados de previsão e classificação.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.ml.body">Desenvolvemos modelos para problemas como churn, propensão à compra, detecção de fraude e priorização de leads, utilizando dados proprietários do cliente.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.ia.title">IA e LLM</h3>
+          <p data-i18n="servicos.ia.teaser">Aplicações com modelos de linguagem.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.ia.body">Criamos pipelines e fluxos de IA generativa, integrações com APIs de LLMs e soluções sob medida para atendimento, sumarização e automação de tarefas.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.eng.title">Engenharia de dados</h3>
+          <p data-i18n="servicos.eng.teaser">Pipelines e qualidade de dados.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.eng.body">Desenhamos ETLs, rotinas de limpeza e camadas de dados confiáveis para apoiar relatórios, produtos de dados e modelos de machine learning.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.bi.title">Analytics e BI</h3>
+          <p data-i18n="servicos.bi.teaser">Dashboards e indicadores para decisão.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.bi.body">Construímos painéis, KPIs e relatórios automatizados que aproximam as equipes de negócio dos dados certos, no momento certo.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.credit.title">Avaliação de crédito</h3>
+          <p data-i18n="servicos.credit.teaser">Modelagem de risco e inadimplência.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.credit.body">Desenvolvemos scores de risco, estratégias de cobrança e políticas de desconto baseadas em evidências, com monitoramento contínuo de performance.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.cv.title">Visão computacional</h3>
+          <p data-i18n="servicos.cv.teaser">Informação a partir de imagens e vídeos.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.cv.body">Aplicamos técnicas de detecção, segmentação e rastreamento para automatizar inspeções, reconhecer padrões e extrair insights de mídias visuais.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.dx.title">Transformação digital</h3>
+          <p data-i18n="servicos.dx.teaser">Processos orientados a dados.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.dx.body">Mapeamos processos, identificamos pontos de automação e apoiamos a adoção de tecnologias digitais com foco em resultados tangíveis.</p>
+          </div>
+        </div>
+
+        <div class="card service-card">
+          <h3 data-i18n="servicos.strategy.title">Estratégia de dados</h3>
+          <p data-i18n="servicos.strategy.teaser">Governança leve e escalável.</p>
+          <div class="service-body">
+            <p data-i18n="servicos.strategy.body">Definimos esquemas, regras de qualidade e políticas mínimas de governança para que o uso de dados cresça de forma sustentável.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <div class="subtitle-line">
+        <span data-i18n="projetos.subtitle">casos de sucesso</span>
+      </div>
+      <h2 data-i18n="projetos.title">Projetos em destaque</h2>
+
+      <div class="projects-layout">
+        <div>
+          <p data-i18n="projetos.p1">
+            Desenvolvemos para a Secretaria de Fazenda do Distrito Federal o <strong>Rating da Dívida Ativa</strong>: uma classificação baseada em Machine Learning para avaliar a perspectiva de recuperação de cada dívida.
+          </p>
+          <p data-i18n="projetos.p2">
+            O programa <strong>Negocia-DF</strong> concede descontos a contribuintes com dívidas tributárias em dívida ativa. O desconto é baseado no algoritmo desenvolvido pela Labarrère Consultoria, permitindo priorizar casos com maior chance de regularização.
+          </p>
+          <p data-i18n="projetos.p3">
+            A solução combina modelagem de risco, segmentação de contribuintes e regras de negócio que respeitam os objetivos fiscais e jurídicos do órgão, mantendo transparência na lógica de decisão.
+          </p>
+
+          <div class="grid" style="margin-top:16px;">
+            <div class="card">
+              <h3 data-i18n="projetos.card1.title">Rating da Dívida Ativa</h3>
+              <p data-i18n="projetos.card1.desc">Modelo de classificação que estima a probabilidade de recuperação de cada crédito em dívida ativa.</p>
+            </div>
+            <div class="card">
+              <h3 data-i18n="projetos.card2.title">Negocia-DF</h3>
+              <p data-i18n="projetos.card2.desc">Programa de negociação que usa o rating para definir descontos escalonados, aumentando a recuperação de créditos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-images" aria-hidden="true">
+          <div class="slide"></div>
+          <div class="slide"></div>
+          <div class="slide"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="abordagem">
+    <div class="wrap">
+      <div class="subtitle-line">
+        <span data-i18n="abordagem.subtitle">como trabalhamos</span>
+      </div>
+      <h2 data-i18n="abordagem.title">Abordagem Labarrère</h2>
+
+      <div class="approach-layout">
+        <div>
+          <p data-i18n="abordagem.p1">
+            O maior desafio das organizações hoje é se atualizar com o que há de mais moderno em tecnologia, sem “fazer IA por fazer”. Nosso foco é conectar oportunidades reais de negócio com soluções sustentáveis em dados, modelos e processos.
+          </p>
+          <p data-i18n="abordagem.p2">
+            Para isso, combinamos três pilares — Dados, Tecnologia e Gestão — em uma abordagem prática, colaborativa e orientada a resultados observáveis.
+          </p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3 data-i18n="abordagem.card1.title">Dados</h3>
+            <p data-i18n="abordagem.card1.desc">Estruturamos, limpamos e organizamos dados para que se tornem ativos confiáveis e reutilizáveis em toda a organização.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="abordagem.card2.title">Tecnologia</h3>
+            <p data-i18n="abordagem.card2.desc">Selecionamos e aplicamos ferramentas, modelos e arquiteturas compatíveis com a realidade do cliente, sem exageros.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="abordagem.card3.title">Gestão</h3>
+            <p data-i18n="abordagem.card3.desc">Garantimos alinhamento com as áreas de negócio, governança leve e rituais que sustentam o uso contínuo das soluções.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatos">
+    <div class="wrap contact">
+      <div class="contact-left">
+        <div>
+          <div class="subtitle-line">
+            <span data-i18n="contatos.subtitle">contatos</span>
+          </div>
+          <h2 data-i18n="contatos.title">Fale com a consultoria</h2>
+          <p data-i18n="contatos.intro">
+            Entre em contato para conversar sobre desafios de dados, IA e transformação digital na sua organização.
+          </p>
+          <p style="margin-top:12px; font-weight:bold;">
+            <span data-i18n="contatos.email.label">E-mail:</span>
+            <a href="mailto:henrique.luz@labarrereconsultoria.com">henrique.luz@labarrereconsultoria.com</a>
+          </p>
+        </div>
+      </div>
+
+      <form id="contato-form" aria-label="Formulário de contato (ilustrativo)">
+        <label for="nome" data-i18n="form.name.label">Nome</label>
+        <input id="nome" name="nome" placeholder="Seu nome" />
+
+        <label for="email" data-i18n="form.email.label">E-mail</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="voce@exemplo.com"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        />
+
+        <label for="msg" data-i18n="form.msg.label">Mensagem</label>
+        <textarea id="msg" name="msg" placeholder="Conte rapidamente o contexto e o que você busca."></textarea>
+
+        <button class="btn" type="submit" data-i18n="form.submit">Enviar mensagem</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <small data-i18n="footer.text">© <span id="y"></span> Labarrère Consultoria — Todos os direitos reservados.</small>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // ANIMAÇÃO DE NÚMEROS
+    const counters = document.querySelectorAll('.num');
+    const ease = t => 1 - Math.pow(1 - t, 4);
+    
+    function animateCount(el){
+      const target = +el.dataset.count;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur = 2500;
+      const start = performance.now();
+
+      function tick(now){
+        const p = Math.min(1, (now - start) / dur);
+        const val = Math.floor(ease(p) * target);
+        el.textContent = prefix + val.toLocaleString('pt-BR') + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const stats = document.getElementById('stats');
+    if (stats){
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            e.target.querySelectorAll('.num').forEach(n => animateCount(n));
+          } else {
+            e.target.querySelectorAll('.num').forEach(n => {
+              const prefix = n.dataset.prefix || '';
+              const suffix = n.dataset.suffix || '';
+              n.textContent = prefix + '0' + suffix;
+            });
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(stats);
+    }
+
+    // CARROSSEL DE PROJETOS
+    const PROJ_SLIDES = [
+      'assets/sobre1.jpg',
+      'assets/sobre2.jpg',
+      'assets/sobre3.jpg'
+    ];
+
+    PROJ_SLIDES.forEach(src => { const img = new Image(); img.src = src; });
+
+    const projVisual = document.querySelector('.proj-images');
+    let projIdx = 0;
+    let projTimer;
+
+    if (projVisual) {
+      const slides = projVisual.querySelectorAll('.slide');
+      slides.forEach((s, i) => {
+        if(PROJ_SLIDES[i]) s.style.backgroundImage = `url('${PROJ_SLIDES[i]}')`;
+      });
+      slides[0].classList.add('show');
+
+      const INTERVAL_MS = 3000;
+
+      function swapProj(){
+        const currentSlide = slides[projIdx];
+        const nextIdx = (projIdx + 1) % slides.length;
+        const nextSlide = slides[nextIdx];
+
+        currentSlide.classList.remove('show');
+        nextSlide.classList.add('show');
+        
+        projIdx = nextIdx;
+      }
+
+      function startProj(){ if(!projTimer) projTimer = setInterval(swapProj, INTERVAL_MS); }
+      function stopProj(){ if(projTimer){ clearInterval(projTimer); projTimer = null; } }
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!prefersReduced.matches) startProj();
+      
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopProj(); else startProj();
+      });
+    }
+
+    // VALIDAÇÃO FORMULÁRIO
+    const form = document.getElementById('contato-form');
+    const emailInput = document.getElementById('email');
+
+    if (emailInput) {
+      emailInput.addEventListener('input', () => {
+        if (emailInput.validity.patternMismatch) {
+          emailInput.setCustomValidity('Digite um e-mail válido, por exemplo: nome@empresa.com');
+        } else {
+          emailInput.setCustomValidity('');
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        if (!emailInput.checkValidity()) {
+          emailInput.reportValidity();
+          e.preventDefault();
+          return;
+        }
+        alert('Formulário de demonstração. Aqui entraria o envio real.');
+        e.preventDefault();
+      });
+    }
+
+    // INTERNACIONALIZAÇÃO (I18N)
+    const I18N = {
+      pt: {
+        'nav.brand': 'Labarrère Consultoria',
+        'nav.inicio': 'Início',
+        'nav.dados': 'Dados',
+        'nav.servicos': 'Serviços',
+        'nav.projetos': 'Projetos',
+        'nav.abordagem': 'Abordagem',
+        'nav.contatos': 'Contatos',
+
+        'hero.title': 'Consultoria para o mundo dos dados',
+        'hero.lead': 'Uma consultoria de transformação para o mundo da IA. Integramos nosso conhecimento em Dados, Tecnologia e Gestão para destravar o potencial da sua organização.',
+        'hero.small': 'Trabalhamos com uma metodologia proprietária de desenvolvimento de projetos de ciência de dados — LeanDS — o que garante entregas rápidas, constantes e o enquadramento correto para o seu problema de negócio.',
+        'hero.cta': 'Fale com a consultoria',
+
+        'dados.subtitle': 'dados e resultados',
+        'dados.title': 'Indicadores de impacto',
+        'dados.text': 'Trabalhamos com uma metodologia proprietária de desenvolvimento de projetos de ciência de dados - LeanDS - o que garante aos nossos clientes entregas rápidas e constantes, e o enquadramento correto para o seu problema de negócio.',
+        'dados.stat1.label': 'Projetos executados',
+        'dados.stat1.desc': 'Projetos de dados, IA e automação em diferentes setores.',
+        'dados.stat2.label': 'Em créditos avaliados',
+        'dados.stat2.desc': 'Volume de créditos analisados por nossos modelos de risco e priorização.',
+        'dados.stat3.label': 'Entregando resultados',
+        'dados.stat3.desc': 'Experiência acumulada em projetos de ciência de dados aplicados.',
+
+        'servicos.subtitle': 'o que fazemos',
+        'servicos.title': 'Serviços',
+        'servicos.text': 'Atuamos em toda a jornada de dados, da infraestrutura à camada de decisão, combinando modelos estatísticos, aprendizado de máquina e soluções de IA generativa.',
+
+        'servicos.ml.title': 'Machine Learning',
+        'servicos.ml.teaser': 'Modelos personalizados de previsão e classificação.',
+        'servicos.ml.body': 'Desenvolvemos modelos para problemas como churn, propensão à compra, detecção de fraude e priorização de leads, utilizando dados proprietários do cliente.',
+
+        'servicos.ia.title': 'IA e LLM',
+        'servicos.ia.teaser': 'Aplicações com modelos de linguagem.',
+        'servicos.ia.body': 'Criamos pipelines e fluxos de IA generativa, integrações com APIs de LLMs e soluções sob medida para atendimento, sumarização e automação de tarefas.',
+
+        'servicos.eng.title': 'Engenharia de dados',
+        'servicos.eng.teaser': 'Pipelines e qualidade de dados.',
+        'servicos.eng.body': 'Desenhamos ETLs, rotinas de limpeza e camadas de dados confiáveis para apoiar relatórios, produtos de dados e modelos de machine learning.',
+
+        'servicos.bi.title': 'Analytics e BI',
+        'servicos.bi.teaser': 'Dashboards e indicadores para decisão.',
+        'servicos.bi.body': 'Construímos painéis, KPIs e relatórios automatizados que aproximam as equipes de negócio dos dados certos, no momento certo.',
+
+        'servicos.credit.title': 'Avaliação de crédito',
+        'servicos.credit.teaser': 'Modelagem de risco e inadimplência.',
+        'servicos.credit.body': 'Desenvolvemos scores de risco, estratégias de cobrança e políticas de desconto baseadas em evidências, com monitoramento contínuo de performance.',
+
+        'servicos.cv.title': 'Visão computacional',
+        'servicos.cv.teaser': 'Informação a partir de imagens e vídeos.',
+        'servicos.cv.body': 'Aplicamos técnicas de detecção, segmentação e rastreamento para automatizar inspeções, reconhecer padrões e extrair insights de mídias visuais.',
+
+        'servicos.dx.title': 'Transformação digital',
+        'servicos.dx.teaser': 'Processos orientados a dados.',
+        'servicos.dx.body': 'Mapeamos processos, identificamos pontos de automação e apoiamos a adoção de tecnologias digitais com foco em resultados tangíveis.',
+
+        'servicos.strategy.title': 'Estratégia de dados',
+        'servicos.strategy.teaser': 'Governança leve e escalável.',
+        'servicos.strategy.body': 'Definimos esquemas, regras de qualidade e políticas mínimas de governança para que o uso de dados cresça de forma sustentável.',
+
+        'projetos.subtitle': 'casos de sucesso',
+        'projetos.title': 'Projetos em destaque',
+        'projetos.p1': 'Desenvolvemos para a Secretaria de Fazenda do Distrito Federal o Rating da Dívida Ativa: classificação baseada em Machine Learning para avaliar a perspectiva de recuperação de cada dívida.',
+        'projetos.p2': 'O programa Negocia-DF, anunciado em outubro de 2025 pelo GDF, concede descontos a contribuintes com dívidas tributárias em dívida ativa.',
+        'projetos.p3': 'O desconto é baseado no algoritmo desenvolvido pela Labarrère Consultoria.',
+        'projetos.card1.title': 'Rating da Dívida Ativa',
+        'projetos.card1.desc': 'Modelo de classificação que estima a probabilidade de recuperação de cada crédito em dívida ativa.',
+        'projetos.card2.title': 'Negocia-DF',
+        'projetos.card2.desc': 'Programa de negociação que usa o rating para definir descontos escalonados, aumentando a recuperação de créditos.',
+
+        'abordagem.subtitle': 'como trabalhamos',
+        'abordagem.title': 'Abordagem Labarrère',
+        'abordagem.p1': 'O maior desafio das organizações hoje é se atualizar com o que há de mais moderno em tecnologia, sem “fazer IA por fazer”. Nosso foco é conectar oportunidades reais de negócio com soluções sustentáveis em dados, modelos e processos.',
+        'abordagem.p2': 'Para isso, combinamos três pilares — Dados, Tecnologia e Gestão — em uma abordagem prática, colaborativa e orientada a resultados observáveis.',
+        'abordagem.card1.title': 'Dados',
+        'abordagem.card1.desc': 'Estruturamos, limpamos e organizamos dados para que se tornem ativos confiáveis e reutilizáveis em toda a organização.',
+        'abordagem.card2.title': 'Tecnologia',
+        'abordagem.card2.desc': 'Selecionamos e aplicamos ferramentas, modelos e arquiteturas compatíveis com a realidade do cliente, sem exageros.',
+        'abordagem.card3.title': 'Gestão',
+        'abordagem.card3.desc': 'Garantimos alinhamento com as áreas de negócio, governança leve e rituais que sustentam o uso contínuo das soluções.',
+
+        'contatos.subtitle': 'contatos',
+        'contatos.title': 'Fale com a consultoria',
+        'contatos.intro': 'Entre em contato para conversar sobre desafios de dados, IA e transformação digital na sua organização.',
+        'contatos.email.label': 'E-mail:',
+
+        'form.name.label': 'Nome',
+        'form.email.label': 'E-mail',
+        'form.msg.label': 'Mensagem',
+        'form.submit': 'Enviar mensagem',
+        'form.name.placeholder': 'Seu nome',
+        'form.email.placeholder': 'voce@exemplo.com',
+        'form.msg.placeholder': 'Conte rapidamente o contexto e o que você busca.',
+
+        'footer.text': '© {year} Labarrère Consultoria — Todos os direitos reservados.'
+      },
+      en: {
+        'nav.brand': 'Labarrère Consultoria',
+        'nav.inicio': 'Home',
+        'nav.dados': 'Data',
+        'nav.servicos': 'Services',
+        'nav.projetos': 'Projects',
+        'nav.abordagem': 'Approach',
+        'nav.contatos': 'Contact',
+
+        'hero.title': 'Consulting for the data-driven world',
+        'hero.lead': 'A consulting firm focused on AI transformation. We integrate expertise in Data, Technology and Management to unlock your organization\'s potential.',
+        'hero.small': 'We use our proprietary LeanDS methodology for data science projects, ensuring fast, continuous deliveries and the right framing for your business problem.',
+        'hero.cta': 'Talk to us',
+
+        'dados.subtitle': 'data and results',
+        'dados.title': 'Impact indicators',
+        'dados.text': 'Labarrère Consulting combines deep technical expertise with business proximity, turning data into concrete decisions.',
+        'dados.stat1.label': 'Projects delivered',
+        'dados.stat1.desc': 'Data, AI and automation projects across different industries.',
+        'dados.stat2.label': 'Credit volume assessed',
+        'dados.stat2.desc': 'Amount of credit analyzed by our risk and prioritization models.',
+        'dados.stat3.label': 'Years delivering results',
+        'dados.stat3.desc': 'Cumulative experience in applied data science projects.',
+
+        'servicos.subtitle': 'what we do',
+        'servicos.title': 'Services',
+        'servicos.text': 'We cover the entire data journey, from infrastructure to decision layer, combining statistical models, machine learning and generative AI solutions.',
+
+        'servicos.ml.title': 'Machine Learning',
+        'servicos.ml.teaser': 'Custom prediction and classification models.',
+        'servicos.ml.body': 'We build models for churn, purchase propensity, fraud detection and lead prioritization using your proprietary data.',
+
+        'servicos.ia.title': 'AI and LLMs',
+        'servicos.ia.teaser': 'Applications powered by language models.',
+        'servicos.ia.body': 'We design generative AI pipelines and flows, integrate LLM APIs and build tailored solutions for support, summarization and task automation.',
+
+        'servicos.eng.title': 'Data engineering',
+        'servicos.eng.teaser': 'Pipelines and data quality.',
+        'servicos.eng.body': 'We design ETLs, cleaning routines and trusted data layers to support reports, data products and machine learning models.',
+
+        'servicos.bi.title': 'Analytics & BI',
+        'servicos.bi.teaser': 'Dashboards and indicators for decision-making.',
+        'servicos.bi.body': 'We build dashboards, KPIs and automated reports that bring the right data to business teams at the right time.',
+
+        'servicos.credit.title': 'Credit risk',
+        'servicos.credit.teaser': 'Risk and default modelling.',
+        'servicos.credit.body': 'We develop risk scores, collection strategies and evidence-based discount policies with continuous performance monitoring.',
+
+        'servicos.cv.title': 'Computer vision',
+        'servicos.cv.teaser': 'Insights from images and video.',
+        'servicos.cv.body': 'We apply detection, segmentation and tracking techniques to automate inspections, recognize patterns and extract insights from visual media.',
+
+        'servicos.dx.title': 'Digital transformation',
+        'servicos.dx.teaser': 'Data-driven processes.',
+        'servicos.dx.body': 'We map processes, identify automation opportunities and support technology adoption with a focus on tangible results.',
+
+        'servicos.strategy.title': 'Data strategy',
+        'servicos.strategy.teaser': 'Lean and scalable governance.',
+        'servicos.strategy.body': 'We define schemas, quality rules and minimal governance policies so data usage can grow sustainably.',
+
+        'projetos.subtitle': 'success stories',
+        'projetos.title': 'Featured projects',
+        'projetos.p1': 'We developed for the Federal District Treasury Department the Active Debt Rating: a machine-learning based classification to estimate the recovery perspective of each debt.',
+        'projetos.p2': 'The Negocia-DF program grants discounts to taxpayers with overdue tax debts. The discount is driven by the algorithm developed by Labarrère Consulting, prioritizing cases with higher regularization chance.',
+        'projetos.p3': 'The solution combines risk modelling, taxpayer segmentation and business rules aligned with the institution’s fiscal and legal objectives, keeping the decision logic transparent.',
+        'projetos.card1.title': 'Active Debt Rating',
+        'projetos.card1.desc': 'Classification model that estimates the recovery probability of each outstanding credit.',
+        'projetos.card2.title': 'Negocia-DF',
+        'projetos.card2.desc': 'Negotiation program that uses the rating to define scaled discounts and increase credit recovery.',
+
+        'abordagem.subtitle': 'how we work',
+        'abordagem.title': 'Labarrère approach',
+        'abordagem.p1': 'The main challenge for organizations today is keeping up with cutting-edge technology without “doing AI just for the sake of it”. Our focus is to connect real business opportunities with sustainable solutions in data, models and processes.',
+        'abordagem.p2': 'To achieve this, we combine three pillars — Data, Technology and Management — in a practical, collaborative approach focused on observable results.',
+        'abordagem.card1.title': 'Data',
+        'abordagem.card1.desc': 'We structure, clean and organize data so it becomes a reliable, reusable asset across the organization.',
+        'abordagem.card2.title': 'Technology',
+        'abordagem.card2.desc': 'We select and apply tools, models and architectures compatible with the client’s reality, without over-engineering.',
+        'abordagem.card3.title': 'Management',
+        'abordagem.card3.desc': 'We ensure alignment with business areas, light governance and routines that sustain continuous use of the solutions.',
+
+        'contatos.subtitle': 'contact',
+        'contatos.title': 'Talk to the consultancy',
+        'contatos.intro': 'Get in touch to discuss data, AI and digital transformation challenges in your organization.',
+        'contatos.email.label': 'E-mail:',
+
+        'form.name.label': 'Name',
+        'form.email.label': 'E-mail',
+        'form.msg.label': 'Message',
+        'form.submit': 'Send message',
+        'form.name.placeholder': 'Your name',
+        'form.email.placeholder': 'you@example.com',
+        'form.msg.placeholder': 'Briefly describe the context and what you are looking for.',
+
+        'footer.text': '© {year} Labarrère Consultoria — All rights reserved.'
+      }
+    };
+
+    let currentLang = 'pt';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const txt = I18N[lang][key];
+        if (!txt) return;
+        if (key === 'footer.text') {
+          const year = new Date().getFullYear();
+          el.innerHTML = I18N[lang][key].replace('{year}', year);
+        } else {
+          el.textContent = txt;
+        }
+      });
+
+      const nome   = document.getElementById('nome');
+      const email  = document.getElementById('email');
+      const msg    = document.getElementById('msg');
+
+      if (nome)  nome.placeholder  = I18N[lang]['form.name.placeholder'];
+      if (email) email.placeholder = I18N[lang]['form.email.placeholder'];
+      if (msg)   msg.placeholder   = I18N[lang]['form.msg.placeholder'];
+
+      const langSwitchEl = document.getElementById('lang-switch');
+      if (langSwitchEl) {
+        langSwitchEl.classList.toggle('is-pt', lang === 'pt');
+        langSwitchEl.classList.toggle('is-en', lang === 'en');
+      }
+    }
+
+    const langSwitchEl = document.getElementById('lang-switch');
+    if (langSwitchEl) {
+      langSwitchEl.addEventListener('click', () => {
+        applyLang(currentLang === 'pt' ? 'en' : 'pt');
+      });
+    }
+
+    applyLang('pt');
+  </script>
+</body>
+</html>
